@@ -239,10 +239,139 @@ button {
   height: 44px;
   padding: 9px 16px;
   border-radius: 12px;
-  font-family: "inter";
+  font-family: "Inter", sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 26px;
   letter-spacing: 0px;
   color: #ffffff;
+  cursor: pointer;
+}
+
+/* ── Nav Menu ─────────────────────────────────────────────── */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 44px;
+}
+
+/* Each top-level nav item wrapper */
+.nav-item {
+  position: relative;
+  height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+/* Links and trigger buttons share the same text style */
+.nav-link,
+.nav-dropdown-trigger {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 9px 4px;
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #ffffff;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: opacity 150ms ease;
+}
+
+.nav-link:hover,
+.nav-dropdown-trigger:hover {
+  opacity: 0.8;
+}
+
+.nav-chevron {
+  flex-shrink: 0;
+  transition: transform 200ms ease;
+}
+
+.nav-dropdown:hover .nav-chevron {
+  transform: rotate(180deg);
+}
+
+/* ── Dropdown Submenu ─────────────────────────────────────── */
+.nav-submenu {
+  display: none;
+  position: absolute;
+  top: 44px;
+  left: 0;
+  width: 224px;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  z-index: 100;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 8px;
+}
+
+/* Invisible bridge that fills the 8px gap so hover doesn't break */
+.nav-submenu::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  height: 8px;
+}
+
+/* show submenu on parent hover */
+.nav-dropdown:hover > .nav-submenu {
+  display: flex;
+}
+
+/* ── Submenu Items ────────────────────────────────────────── */
+.nav-submenu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  width: 100%;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a2141;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 150ms ease;
+  background: #ffffff;
+}
+
+.nav-submenu-item:hover {
+  background-color: #f0f4fa;
+}
+
+/* ── Nested Flyout ────────────────────────────────────────── */
+.nav-nested-trigger {
+  position: relative;
+}
+
+.nav-flyout {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: calc(100% + 8px);
+  width: auto;
+}
+
+.nav-nested-trigger:hover > .nav-flyout {
+  display: flex;
+}
+
+/* bridge gap so the flyout stays open while moving cursor */
+.nav-flyout::before {
+  content: "";
+  position: absolute;
+  top: -10;
+  left: -8px;
+  width: 8px;
+  height: 100%;
 }
