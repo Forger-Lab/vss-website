@@ -1,4 +1,5 @@
 <div class="nav-container">
+  <!-- ── Top Banner (hidden on mobile) ─────────────────────── -->
   <div class="nav-banner">
     <div class="flex-row" style="gap: 8px;">
       <input
@@ -25,23 +26,25 @@
       <img src="/icons/irish-flag.svg" alt="Irish flag" />
     </button>
   </div>
+
+  <!-- ── Main Nav Bar ───────────────────────────────────────── -->
   <div class="nav-bar">
-    <div>
+    <!-- Logo (always visible) -->
+    <a href="/" class="nav-logo-link">
       <img
         src="/Logo-3D.jpg"
         alt="Vigilant Security Services Logo"
         class="nav-logo"
       />
-    </div>
+    </a>
 
-    <!-- nav menu -->
-    <nav class="nav-menu">
-      <!-- Home -->
+    <!-- Desktop nav menu -->
+    <nav class="nav-menu" aria-label="Main navigation">
       <a href="/" class="nav-item nav-link">Home</a>
 
       <!-- About Us -->
       <div class="nav-item nav-dropdown">
-        <button class="nav-link nav-dropdown-trigger">
+        <button class="nav-link nav-dropdown-trigger" aria-haspopup="true">
           About Us
           <svg
             class="nav-chevron"
@@ -61,13 +64,13 @@
         <div class="nav-submenu">
           <a href="/about" class="nav-submenu-item">About Us</a>
           <a href="/careers" class="nav-submenu-item">Careers</a>
-          <a href="/news" class="nav-submenu-item">News & Updates</a>
+          <a href="/news" class="nav-submenu-item">News &amp; Updates</a>
         </div>
       </div>
 
       <!-- Services -->
       <div class="nav-item nav-dropdown">
-        <button class="nav-link nav-dropdown-trigger">
+        <button class="nav-link nav-dropdown-trigger" aria-haspopup="true">
           Services
           <svg
             class="nav-chevron"
@@ -106,7 +109,6 @@
           <a href="/services/security-cameras" class="nav-submenu-item"
             >Security Cameras</a
           >
-          <!-- Support Services with nested flyout -->
           <div class="nav-submenu-item nav-nested-trigger">
             Support Services
             <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
@@ -140,7 +142,7 @@
 
       <!-- Electronic Security System -->
       <div class="nav-item nav-dropdown">
-        <button class="nav-link nav-dropdown-trigger">
+        <button class="nav-link nav-dropdown-trigger" aria-haspopup="true">
           Electronic Security System
           <svg
             class="nav-chevron"
@@ -171,7 +173,7 @@
 
       <!-- Our People -->
       <div class="nav-item nav-dropdown">
-        <button class="nav-link nav-dropdown-trigger">
+        <button class="nav-link nav-dropdown-trigger" aria-haspopup="true">
           Our People
           <svg
             class="nav-chevron"
@@ -194,9 +196,304 @@
         </div>
       </div>
 
-      <!-- Contact US -->
       <a href="/contact" class="nav-item nav-link">Contact US</a>
     </nav>
-    <button class="primary-btn"> Join Our Team </button>
+
+    <!-- Desktop CTA -->
+    <button class="primary-btn desktop-cta">Join Our Team</button>
+
+    <!-- Mobile right-side controls -->
+    <div class="mobile-controls">
+      <!-- <button class="primary-btn mobile-cta">Join Our Team</button> -->
+      <button
+        id="hamburger-btn"
+        class="hamburger-btn"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+      >
+        <!-- Hamburger icon -->
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
   </div>
 </div>
+
+<!-- ── Mobile Sidebar Overlay ─────────────────────────────── -->
+<div id="sidebar-overlay" class="sidebar-overlay" aria-hidden="true"></div>
+
+<!-- ── Mobile Sidebar ─────────────────────────────────────── -->
+<aside
+  id="mobile-sidebar"
+  class="mobile-sidebar"
+  aria-label="Mobile navigation"
+>
+  <div class="sidebar-header">
+    <img
+      src="/Logo-3D.jpg"
+      alt="Vigilant Security Services Logo"
+      class="sidebar-logo"
+    />
+    <button
+      id="sidebar-close"
+      class="sidebar-close-btn"
+      aria-label="Close navigation menu"
+    >
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <path
+          d="M4 4L16 16M16 4L4 16"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"></path>
+      </svg>
+    </button>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a href="/" class="sidebar-link">Home</a>
+
+    <!-- About Us accordion -->
+    <div class="sidebar-accordion">
+      <button class="sidebar-accordion-trigger">
+        About Us
+        <svg
+          class="sidebar-chevron"
+          width="14"
+          height="14"
+          viewBox="0 0 12 12"
+          fill="none"
+        >
+          <path
+            d="M2 4L6 8L10 4"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+        </svg>
+      </button>
+      <div class="sidebar-accordion-body">
+        <div>
+          <a href="/about" class="sidebar-sub-link">About Us</a>
+          <a href="/careers" class="sidebar-sub-link">Careers</a>
+          <a href="/news" class="sidebar-sub-link">News &amp; Updates</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Services accordion -->
+    <div class="sidebar-accordion">
+      <button class="sidebar-accordion-trigger">
+        Services
+        <svg
+          class="sidebar-chevron"
+          width="14"
+          height="14"
+          viewBox="0 0 12 12"
+          fill="none"
+        >
+          <path
+            d="M2 4L6 8L10 4"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+        </svg>
+      </button>
+      <div class="sidebar-accordion-body">
+        <div>
+          <a href="/services/event-security" class="sidebar-sub-link"
+            >Event Security Services</a
+          >
+          <a href="/services/construction-security" class="sidebar-sub-link"
+            >Construction Site Security</a
+          >
+          <a href="/services/corporate-security" class="sidebar-sub-link"
+            >Corporate Security</a
+          >
+          <a href="/services/public-sector" class="sidebar-sub-link"
+            >Public Sector Protection</a
+          >
+          <a href="/services/care-housing" class="sidebar-sub-link"
+            >Care &amp; Housing Security</a
+          >
+          <a href="/services/support-workers" class="sidebar-sub-link"
+            >Support Workers</a
+          >
+          <a href="/services/security-cameras" class="sidebar-sub-link"
+            >Security Cameras</a
+          >
+          <!-- Support Services nested accordion -->
+          <div class="sidebar-accordion sidebar-nested-accordion">
+            <button class="sidebar-accordion-trigger sidebar-nested-trigger">
+              Support Services
+              <svg
+                class="sidebar-chevron"
+                width="14"
+                height="14"
+                viewBox="0 0 12 12"
+                fill="none"
+              >
+                <path
+                  d="M2 4L6 8L10 4"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+              </svg>
+            </button>
+            <div class="sidebar-accordion-body">
+              <div>
+                <a
+                  href="/services/support/cleaning"
+                  class="sidebar-sub-link sidebar-deep-link"
+                  >Cleaning Services</a
+                >
+                <a
+                  href="/services/support/reception"
+                  class="sidebar-sub-link sidebar-deep-link"
+                  >Reception, Mail Room &amp; Support Services</a
+                >
+                <a
+                  href="/services/support/facilities"
+                  class="sidebar-sub-link sidebar-deep-link"
+                  >Integrated Facilities Management</a
+                >
+                <a
+                  href="/services/support/grounds"
+                  class="sidebar-sub-link sidebar-deep-link"
+                  >Grounds Maintenance &amp; Landscaping</a
+                >
+                <a
+                  href="/services/support/workers"
+                  class="sidebar-sub-link sidebar-deep-link">Support Workers</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Electronic Security System accordion -->
+    <div class="sidebar-accordion">
+      <button class="sidebar-accordion-trigger">
+        Electronic Security System
+        <svg
+          class="sidebar-chevron"
+          width="14"
+          height="14"
+          viewBox="0 0 12 12"
+          fill="none"
+        >
+          <path
+            d="M2 4L6 8L10 4"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+        </svg>
+      </button>
+      <div class="sidebar-accordion-body">
+        <div>
+          <a href="/electronic/cctv" class="sidebar-sub-link">CCTV Systems</a>
+          <a href="/electronic/access-control" class="sidebar-sub-link"
+            >Access Control</a
+          >
+          <a href="/electronic/alarm" class="sidebar-sub-link"
+            >Intruder Alarm Systems</a
+          >
+          <a href="/electronic/fire" class="sidebar-sub-link">Fire Detection</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Our People accordion -->
+    <div class="sidebar-accordion">
+      <button class="sidebar-accordion-trigger">
+        Our People
+        <svg
+          class="sidebar-chevron"
+          width="14"
+          height="14"
+          viewBox="0 0 12 12"
+          fill="none"
+        >
+          <path
+            d="M2 4L6 8L10 4"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+        </svg>
+      </button>
+      <div class="sidebar-accordion-body">
+        <div>
+          <a href="/people/team" class="sidebar-sub-link">Our Team</a>
+          <a href="/people/leadership" class="sidebar-sub-link">Leadership</a>
+        </div>
+      </div>
+    </div>
+
+    <a href="/contact" class="sidebar-link">Contact US</a>
+  </nav>
+
+  <!-- CTA at bottom of sidebar -->
+  <div class="sidebar-footer">
+    <button class="primary-btn sidebar-cta">Join Our Team</button>
+  </div>
+</aside>
+
+<script>
+  const hamburger = document.getElementById(
+    "hamburger-btn",
+  ) as HTMLButtonElement;
+  const sidebar = document.getElementById("mobile-sidebar") as HTMLElement;
+  const overlay = document.getElementById("sidebar-overlay") as HTMLElement;
+  const closeBtn = document.getElementById(
+    "sidebar-close",
+  ) as HTMLButtonElement;
+
+  function openSidebar() {
+    sidebar.classList.add("is-open");
+    overlay.classList.add("is-visible");
+    hamburger.setAttribute("aria-expanded", "true");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeSidebar() {
+    sidebar.classList.remove("is-open");
+    overlay.classList.remove("is-visible");
+    hamburger.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "";
+  }
+
+  hamburger.addEventListener("click", openSidebar);
+  closeBtn.addEventListener("click", closeSidebar);
+  overlay.addEventListener("click", closeSidebar);
+
+  // Accordion toggle
+  document
+    .querySelectorAll<HTMLButtonElement>(".sidebar-accordion-trigger")
+    .forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        const accordion = trigger.closest(".sidebar-accordion") as HTMLElement;
+        const isOpen = accordion.classList.contains("is-open");
+        // Close siblings at the same level (not nested ones)
+        if (!accordion.classList.contains("sidebar-nested-accordion")) {
+          accordion
+            .closest(".sidebar-nav, .sidebar-accordion-body")
+            ?.querySelectorAll(
+              ":scope > .sidebar-accordion:not(.sidebar-nested-accordion)",
+            )
+            .forEach((el) => el.classList.remove("is-open"));
+        }
+        accordion.classList.toggle("is-open", !isOpen);
+      });
+    });
+
+  // Close sidebar on Escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeSidebar();
+  });
+</script>
