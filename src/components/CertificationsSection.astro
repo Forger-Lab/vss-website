@@ -1,0 +1,29 @@
+---
+import LogoCarousel from "../components/LogoCarousel.astro";
+
+interface LogoImage {
+  src: string;
+  alt: string;
+}
+
+interface Props {
+  images: LogoImage[];
+}
+
+const { images } = Astro.props;
+---
+
+<div class="figma-container" style="padding-bottom: 0px;">
+  <div class="flex-col">
+    <div class="flex-col" style="gap: 8px">
+      <h1 class="heading-2">Certified & Approved Security Provider</h1>
+      <p class="title" style="color: var(--secondary-text);">
+        Recognized for security guarding, door supervision, and keyholding
+        services by industry authorities.
+      </p>
+    </div>
+    <div>
+      <LogoCarousel images={images} imageHeight={164} grayscale={false} />
+    </div>
+  </div>
+</div>

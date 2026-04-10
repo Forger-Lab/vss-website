@@ -1,0 +1,228 @@
+---
+const services = [
+  {
+    img: "/service/ticket.svg",
+    title: "Event Security Services",
+    description:
+      "Professional event security in London, providing crowd control, access management, and SIA-licensed officers for events of all sizes.",
+    url: "/services/event-security",
+  },
+  {
+    img: "/service/wrentch.svg",
+    title: "Construction Site Security",
+    description:
+      "Round-the-clock protection for your construction sites, deterring theft, vandalism and unauthorised access across the UK.",
+    url: "/services/construction-security",
+  },
+  {
+    img: "/service/bag.svg",
+    title: "Retail Security Services",
+    description:
+      "Experienced retail security officers who reduce shrinkage, prevent shoplifting, and create a safe shopping environment.",
+    url: "/services/retail-security",
+  },
+  {
+    img: "/service/building.svg",
+    title: "Corporate Security",
+    description:
+      "Tailored corporate security solutions protecting your people, assets, and premises with professionalism and discretion.",
+    url: "/services/corporate-security",
+  },
+  {
+    img: "/service/public.svg",
+    title: "Public Sector Protection",
+    description:
+      "Specialist security services for government buildings, hospitals, schools, and other public sector organisations.",
+    url: "/services/public-sector",
+  },
+  {
+    img: "/service/house.svg",
+    title: "Care & Housing Security",
+    description:
+      "Sensitive, respectful security solutions for care homes, sheltered housing, and residential developments.",
+    url: "/services/care-housing",
+  },
+  {
+    img: "/service/paw.svg",
+    title: "Support Workers",
+    description:
+      "Trained lone-worker support and welfare officers ensuring the safety of vulnerable individuals in the community.",
+    url: "/services/support-workers",
+  },
+  {
+    img: "/service/camera.svg",
+    title: "Security Cameras",
+    description:
+      "Supply, installation, and monitoring of CCTV systems integrated with your wider security strategy.",
+    url: "/services/security-cameras",
+  },
+  {
+    img: "/service/key.svg",
+    title: "Support Services",
+    description:
+      "Comprehensive facilities support — cleaning, reception, mail room management, grounds maintenance, and more.",
+    url: "/services/support",
+  },
+];
+---
+
+<div class="figma-container">
+  <div class="flex-col" style="gap: 48px;">
+
+    <!-- Section header -->
+    <div class="flex-col" style="gap: 40px">
+      <h1 class="heading-2">Services Vigilant Offers</h1>
+      <p class="body-regular">
+        Our extensive range of security services in the UK is designed to
+        address the unique challenges faced by various sectors. Each service is
+        delivered by thoroughly vetted, SIA-licensed security officers and
+        backed by our commitment to professional excellence
+      </p>
+    </div>
+
+    <!-- Cards grid -->
+    <div class="services-grid">
+      {services.map((s) => (
+        <a href={s.url} class="service-card">
+
+          <!-- Icon with circular tinted background -->
+          <div class="service-icon-wrap">
+            <img src={s.img} alt={s.title} width="20" height="20" />
+          </div>
+
+          <!-- Heading row -->
+          <div class="service-heading-row">
+            <span class="card-title" style="color: var(--primary-text);">{s.title}</span>
+          </div>
+
+          <!-- Description -->
+          <p class="body-regular service-desc" style="color: var(--secondary-text); text-align: left;">
+            {s.description}
+          </p>
+
+          <!-- Show more link -->
+          <div class="service-link-row">
+            <span class="body-large" style="color: var(--primary-text);">Show more</span>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path
+                d="M4 10h12M11 5l5 5-5 5"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+
+        </a>
+      ))}
+    </div>
+
+    <div class="flex-row">
+        <button class="primary-btn flex-row">
+        <img src="/icons/quick-reply.svg" alt="box icon" />
+        <span> Quick Quote </span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* ── Cards grid — 3-column, wraps on smaller screens ───── */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 362px);
+    gap: 24px;
+    justify-content: center;
+  }
+
+  /* ── Card ────────────────────────────────────────────────── */
+  .service-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-width: 362px;
+    border-radius: 24px;
+    padding: 24px;           /* 8px outer + 16px inner ≈ comfortable */
+    /* background: #ffffff; */
+    /* border: 1px solid rgba(26, 32, 64, 0.08); */
+    text-decoration: none;
+    transition:
+      box-shadow 220ms ease,
+      transform   220ms ease;
+  }
+
+  .service-card:hover {
+    box-shadow: 0 8px 32px rgba(37, 99, 235, 0.12);
+    transform: translateY(-4px);
+  }
+
+  /* ── Icon circle ─────────────────────────────────────────── */
+  /* Figma: 40×40, background #2563EB26 */
+  .service-icon-wrap {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #2563eb26;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .service-icon-wrap img {
+    display: block;
+  }
+
+  /* ── Heading row ─────────────────────────────────────────── */
+  /* Figma: height 36, gap 8, padding 4px top/bottom */
+  .service-heading-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 0;
+    min-height: 36px;
+  }
+
+  /* ── Description ─────────────────────────────────────────── */
+  /* Clamp to 3 lines so cards stay uniform height */
+  .service-desc {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    flex: 1;
+  }
+
+  /* ── "Show more" button row ──────────────────────────────── */
+  /* Figma: width 121, height 36, gap 4, padding 4px top/bottom */
+  .service-link-row {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 0;
+    min-height: 36px;
+    color: var(--primary-text);
+    transition: gap 200ms ease;
+  }
+
+  .service-card:hover .service-link-row {
+    gap: 10px;   /* arrow nudges right on hover */
+  }
+
+  /* ── Responsive ──────────────────────────────────────────── */
+  @media (max-width: 1200px) {
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .service-card {
+      min-width: 0;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

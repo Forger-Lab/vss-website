@@ -1,6 +1,32 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Navbar from "@/components/Navbar.astro";
+import HeroSection from "@/components/HeroSection.astro";
+import LogoCarousel from "@/components/LogoCarousel.astro";
+import TrustedSection from "@/components/TrustedSection.astro";
+import ServicesSection from "@/components/ServicesSection.astro";
+import ChooseSection from "@/components/ChooseSection.astro";
+import TestimonialSection from "@/components/TestimonialSection.astro";
+import CertificationsSection from "@/components/CertificationsSection.astro";
+import FinalCtaSection from "@/components/FinalCtaSection.astro";
+import Footer from "@/components/Footer.astro";
+
+const accreditations = [
+  { src: "/slider/14001-RGB-White.jpg", alt: "ISO 14001" },
+  { src: "/slider/27001-CMYK-White.jpg", alt: "ISO 27001" },
+  { src: "/slider/45001-CMYK-White.jpg", alt: "ISO 45001" },
+  { src: "/slider/Achilles.jpg", alt: "Achilles" },
+  { src: "/slider/Constructionline.jpg", alt: "Constructionline" },
+  { src: "/slider/Investor-In-People.jpg", alt: "Investor in People" },
+  { src: "/slider/Iso-9002-logo.png", alt: "ISO 9001" },
+  { src: "/slider/NSI-GOLD-UKAS-PCMS-RGB-300dpi.jpg", alt: "NSI Gold" },
+  { src: "/slider/PSA.jpg", alt: "PSA" },
+  {
+    src: "/slider/safecontractor-round-RGB-297x300-1(1).jpg",
+    alt: "SafeContractor",
+  },
+  { src: "/slider/SIA-logo-grey.jpg", alt: "SIA" },
+];
 ---
 
 <BaseLayout
@@ -10,91 +36,15 @@ import Navbar from "@/components/Navbar.astro";
   <main>
     <section class="">
       <Navbar />
+      <HeroSection />
+      <LogoCarousel images={accreditations} />
+      <TrustedSection />
+      <ServicesSection />
+      <ChooseSection />
+      <TestimonialSection />
+      <CertificationsSection images={accreditations} />
+      <FinalCtaSection />
+      <Footer />
     </section>
   </main>
 </BaseLayout>
-
-<style>
-  /* Hero */
-  .hero {
-    display: flex;
-    align-items: center;
-    min-height: 90vh;
-    text-align: center;
-  }
-
-  .hero .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-6);
-  }
-
-  .hero__headline {
-    font-size: clamp(var(--text-4xl), 6vw, var(--text-5xl));
-    background: linear-gradient(
-      135deg,
-      var(--color-text) 0%,
-      var(--color-primary-hover) 100%
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    max-width: 16ch;
-  }
-
-  .hero__sub {
-    font-size: var(--text-xl);
-    color: var(--color-text-muted);
-    max-width: 52ch;
-    line-height: var(--leading-normal);
-  }
-
-  .hero__actions {
-    display: flex;
-    gap: var(--space-4);
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: var(--space-4);
-  }
-
-  /* Buttons */
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
-    padding: var(--space-3) var(--space-8);
-    border-radius: var(--radius-full);
-    font-size: var(--text-base);
-    font-weight: 600;
-    letter-spacing: 0.01em;
-    transition: all var(--transition-base);
-    cursor: pointer;
-    border: none;
-    text-decoration: none;
-  }
-
-  .btn--primary {
-    background: var(--color-primary);
-    color: #fff;
-    box-shadow: var(--shadow-glow);
-  }
-
-  .btn--primary:hover {
-    background: var(--color-primary-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 0 48px rgba(108, 99, 255, 0.4);
-  }
-
-  .btn--ghost {
-    background: transparent;
-    color: var(--color-text);
-    border: 1.5px solid var(--color-border);
-  }
-
-  .btn--ghost:hover {
-    border-color: var(--color-primary);
-    color: var(--color-primary-hover);
-    transform: translateY(-2px);
-  }
-</style>
