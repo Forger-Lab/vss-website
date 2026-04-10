@@ -271,66 +271,6 @@ button {
   justify-content: center;
 }
 
-.nav-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.nav-banner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 4px 64px;
-  background-color: var(--color-primary);
-}
-
-.search-btn {
-  width: 32px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--color-secondary);
-  border-radius: 10px;
-}
-
-.rounded-bdr {
-  border-style: solid;
-  border-radius: 12px;
-  border-width: 1.5px;
-  border-color: #e2ebf5;
-  background-color: transparent;
-}
-
-.search-bar {
-  padding: 4px 16px;
-  color: #8a94b0;
-}
-
-.pill-btn {
-  padding: 4px 16px;
-  gap: 10px;
-}
-
-.nav-bar {
-  background-color: var(--color-primary);
-  padding: 14px 64px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-}
-
-.nav-logo {
-  width: auto;
-  height: 58px;
-}
-
-.nav-logo-mobile {
-  width: auto;
-  height: 44px;
-}
-
 .primary-btn {
   background-color: var(--color-secondary);
   width: auto;
