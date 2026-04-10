@@ -1,5 +1,7 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
 
 interface Props {
   title: string;
@@ -11,11 +13,11 @@ interface Props {
 const {
   title,
   description,
-  ogImage = '/og-default.png',
+  ogImage = "/og-default.png",
   canonicalUrl = Astro.url.href,
 } = Astro.props;
 
-const siteName = 'Your Company'; // ⚠️ Update this
+const siteName = "Vigilant Security Services";
 ---
 
 <!doctype html>
@@ -50,6 +52,25 @@ const siteName = 'Your Company'; // ⚠️ Update this
     <!-- <link rel="preconnect" href="https://fonts.googleapis.com" /> -->
   </head>
   <body>
-    <slot />
+    <!-- Sticky navbar sits outside the page scroll flow -->
+    <header class="site-header">
+      <Navbar />
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <Footer />
   </body>
 </html>
+
+<style>
+  /* Sticky header wrapper — Navbar component keeps its own internal styles */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+  }
+</style>

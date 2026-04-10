@@ -1,6 +1,5 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Navbar from "@/components/Navbar.astro";
 import HeroSection from "@/components/HeroSection.astro";
 import LogoCarousel from "@/components/LogoCarousel.astro";
 import TrustedSection from "@/components/TrustedSection.astro";
@@ -9,7 +8,6 @@ import ChooseSection from "@/components/ChooseSection.astro";
 import TestimonialSection from "@/components/TestimonialSection.astro";
 import CertificationsSection from "@/components/CertificationsSection.astro";
 import FinalCtaSection from "@/components/FinalCtaSection.astro";
-import Footer from "@/components/Footer.astro";
 
 const accreditations = [
   { src: "/slider/14001-RGB-White.jpg", alt: "ISO 14001" },
@@ -21,30 +19,21 @@ const accreditations = [
   { src: "/slider/Iso-9002-logo.png", alt: "ISO 9001" },
   { src: "/slider/NSI-GOLD-UKAS-PCMS-RGB-300dpi.jpg", alt: "NSI Gold" },
   { src: "/slider/PSA.jpg", alt: "PSA" },
-  {
-    src: "/slider/safecontractor-round-RGB-297x300-1(1).jpg",
-    alt: "SafeContractor",
-  },
+  { src: "/slider/safecontractor-round-RGB-297x300-1(1).jpg", alt: "SafeContractor" },
   { src: "/slider/SIA-logo-grey.jpg", alt: "SIA" },
 ];
 ---
 
 <BaseLayout
   title="Home"
-  description="Your compelling marketing tagline goes here. Keep it under 160 characters for best SEO."
+  description="Vigilant Security Services — proactive, technology-driven security solutions for businesses and communities across the UK."
 >
-  <main>
-    <section class="">
-      <Navbar />
-      <HeroSection />
-      <LogoCarousel images={accreditations} />
-      <TrustedSection />
-      <ServicesSection />
-      <ChooseSection />
-      <TestimonialSection />
-      <CertificationsSection images={accreditations} />
-      <FinalCtaSection />
-      <Footer />
-    </section>
-  </main>
+  <HeroSection />
+  <LogoCarousel images={accreditations} />
+  <TrustedSection />
+  <ServicesSection />
+  <ChooseSection />
+  <TestimonialSection />
+  <CertificationsSection images={accreditations} />
+  <FinalCtaSection />
 </BaseLayout>
