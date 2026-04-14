@@ -67,7 +67,9 @@
   }
 
   .nav-bar {
-    background-color: var(--color-primary);
+    background-color: rgba(37, 99, 235, 0.8);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
     padding: 14px 64px;
     display: flex;
     align-items: center;
@@ -89,7 +91,7 @@
 <div class="nav-container">
   <!-- ── Top Banner (hidden on mobile) ─────────────────────── -->
   <div class="nav-banner">
-    <div class="flex-row" style="gap: 8px;">
+    <!-- <div class="flex-row" style="gap: 8px;">
       <input
         type="text"
         placeholder="Search the site"
@@ -98,7 +100,7 @@
       <button class="search-btn">
         <img src="/icons/search-icon.svg" alt="search icon" />
       </button>
-    </div>
+    </div> -->
     <div class="flex-row" style="gap: 16px;">
       <button class="flex-row" style="gap: 8px;">
         <img src="/icons/call-icon.svg" alt="phone icon" />
@@ -119,11 +121,12 @@
   <div class="nav-bar">
     <!-- Logo (always visible) -->
     <a href="/" class="nav-logo-link">
-      <img
+      <!-- <img
         src="/Logo-3D.jpg"
         alt="Vigilant Security Services Logo"
         class="nav-logo"
-      />
+      /> -->
+      <h2>VSS LOGO</h2>
     </a>
 
     <!-- Desktop nav menu -->
