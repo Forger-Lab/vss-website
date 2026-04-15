@@ -11,12 +11,8 @@
     padding: 4px 64px;
     position: relative; /* needed for ::before pseudo-element */
     /* Figma gradient */
-    background: linear-gradient(
-      90.01deg,
-      #2563eb 0.01%,
-      #f97316 47.76%,
-      #1a2040 88.66%
-    );
+    background: #ffffff;
+    border-bottom: 1px solid #f0f0f0;
     overflow: hidden;
   }
 
@@ -30,6 +26,7 @@
     -webkit-backdrop-filter: blur(6px);
     pointer-events: none; /* clicks pass through */
     z-index: 0;
+    display: none;
   }
 
   /* Lift all direct children above the glass layer */
@@ -52,13 +49,14 @@
     border-style: solid;
     border-radius: 12px;
     border-width: 1.5px;
-    border-color: #e2ebf5;
+    border-color: var(--color-primary);
     background-color: transparent;
   }
 
   .search-bar {
-    padding: 4px 16px;
-    color: #8a94b0;
+    padding: 4px 12px;
+    color: #1a1a1a;
+    font-size: 14px;
   }
 
   .pill-btn {
@@ -67,14 +65,15 @@
   }
 
   .nav-bar {
-    background-color: rgba(37, 99, 235, 0.8);
-    backdrop-filter: blur(12px) saturate(180%);
-    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    background-color: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
     padding: 14px 64px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 8px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
   }
 
   .nav-logo {
@@ -101,18 +100,18 @@
         <img src="/icons/search-icon.svg" alt="search icon" />
       </button>
     </div> -->
-    <div class="flex-row" style="gap: 16px;">
-      <button class="flex-row" style="gap: 8px;">
+    <div class="flex-row" style="gap: 8px;">
+      <button class="flex-row rounded-bdr pill-btn" style="padding: 4px 12px; gap: 8px;">
         <img src="/icons/call-icon.svg" alt="phone icon" />
-        <span style="color: #ffffff;">+44 (0)800 983 3321</span>
+        <span style="color: #1a1a1a; font-weight: 600; font-size: 13px;">+44 (0)800 983 3321</span>
       </button>
-      <button class="flex-row" style="gap: 8px;">
+      <button class="flex-row rounded-bdr pill-btn" style="padding: 4px 12px; gap: 8px;">
         <img src="/icons/call-icon.svg" alt="phone icon" />
-        <span style="color: #ffffff;">+44 (0)207 183 4247 </span>
+        <span style="color: #1a1a1a; font-weight: 600; font-size: 13px;">+44 (0)207 183 4247 </span>
       </button>
     </div>
-    <button class="flex-row rounded-bdr pill-btn pill-text">
-      <span class="pill-text"> Our Other Site </span>
+    <button class="flex-row rounded-bdr pill-btn" style="padding: 4px 12px; gap: 8px;">
+      <span style="color: #1a1a1a; font-weight: 600; font-size: 13px;"> Our Other Site </span>
       <img src="/icons/irish-flag.svg" alt="Irish flag" />
     </button>
   </div>

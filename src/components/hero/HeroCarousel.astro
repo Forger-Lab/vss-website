@@ -37,6 +37,44 @@ const slides = [
     align-items: center;
     gap: 28px;
     width: 100%;
+    /* Define base dimensions */
+    --hc-stage-h: 300px;
+    --hc-center-w: 400px;
+    --hc-center-h: 300px;
+    --hc-side-w: 300px;
+    --hc-side-h: 250px;
+    --hc-center-left: 196px;
+    --hc-left-left: -50px;
+    --hc-right-left: 542px;
+    --hc-side-top: 25px;
+  }
+
+  @media (max-width: 850px) {
+    .hc-wrap {
+      --hc-stage-h: 240px;
+      --hc-center-w: 320px;
+      --hc-center-h: 240px;
+      --hc-side-w: 220px;
+      --hc-side-h: 180px;
+      --hc-center-left: calc(50% - 160px);
+      --hc-left-left: -130px;
+      --hc-right-left: calc(50% + 110px);
+      --hc-side-top: 30px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hc-wrap {
+      --hc-stage-h: 200px;
+      --hc-center-w: 260px;
+      --hc-center-h: 195px;
+      --hc-side-w: 160px;
+      --hc-side-h: 140px;
+      --hc-center-left: calc(50% - 130px);
+      --hc-left-left: -140px;
+      --hc-right-left: calc(50% + 110px);
+      --hc-side-top: 27px;
+    }
   }
 
   /* ── Stage ───────────────────────────────────────────────── */
@@ -44,8 +82,7 @@ const slides = [
     position: relative;
     width: 792px;
     max-width: 100%;
-    height: 300px;
-    /* allow side images to bleed outside the stage bounds */
+    height: var(--hc-stage-h);
     overflow: visible;
   }
 
@@ -76,16 +113,14 @@ const slides = [
 
   /* ── Slot: CENTER (active / Figma main image) ────────────── */
   .is-center {
-    /* Figma: left:196, width:400, height:300, border-radius:34 */
-    left: 196px;
+    left: var(--hc-center-left);
     top: 0;
-    width: 400px;
-    height: 300px;
+    width: var(--hc-center-w);
+    height: var(--hc-center-h);
     border-radius: 34px;
     opacity: 1;
     z-index: 2;
     filter: brightness(1) saturate(1);
-    /* orange ring frame — box-shadow doesn't affect layout, transitions smoothly */
     box-shadow:
       0 0 0 14px var(--color-primary),
       0 24px 64px rgba(0, 0, 0, 0);
@@ -93,11 +128,10 @@ const slides = [
 
   /* ── Slot: LEFT (previous) ───────────────────────────────── */
   .is-left {
-    /* By symmetry with right: starts 50px before stage left edge */
-    left: -50px;
-    top: 25px;
-    width: 300px;
-    height: 250px;
+    left: var(--hc-left-left);
+    top: var(--hc-side-top);
+    width: var(--hc-side-w);
+    height: var(--hc-side-h);
     border-radius: 32px;
     opacity: 0.72;
     z-index: 1;
@@ -109,11 +143,10 @@ const slides = [
 
   /* ── Slot: RIGHT (next) ──────────────────────────────────── */
   .is-right {
-    /* Figma: left:542, width:300, height:250, top:50→25px (centred in 300h) */
-    left: 542px;
-    top: 25px;
-    width: 300px;
-    height: 250px;
+    left: var(--hc-right-left);
+    top: var(--hc-side-top);
+    width: var(--hc-side-w);
+    height: var(--hc-side-h);
     border-radius: 32px;
     opacity: 0.72;
     z-index: 1;

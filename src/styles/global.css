@@ -22,12 +22,13 @@
   --color-surface: #1a1a26;
   --color-border: rgba(255, 255, 255, 0.08);
 
-  --color-primary: #2563eb;
-  --color-primary-hover: #8b84ff;
-  --color-secondary: #f97316;
+  --color-primary: #b61f26;
+  --color-primary-hover: #91191e;
+  --color-secondary: #2563eb;
 
-  --primary-text: #1a2040;
-  --secondary-text: #8a94b0;
+  --primary-text: #1a1a1a;
+  --secondary-text: #4a4a4a;
+  --color-text: #1a1a1a;
 
   /* Typography */
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
@@ -136,9 +137,9 @@ button {
 .heading-1 {
   font-family: "Syne";
   font-weight: 700;
-  font-size: 64px;
-  line-height: 70px;
-  letter-spacing: -0.5px;
+  font-size: clamp(2rem, 8vw, 4rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
   text-align: center;
 }
 
@@ -153,8 +154,8 @@ button {
 .body-large {
   font-family: "Inter";
   font-weight: 700;
-  font-size: 18px;
-  line-height: 28px;
+  font-size: clamp(1rem, 4vw, 1.125rem);
+  line-height: 1.5;
   letter-spacing: 0px;
   text-align: center;
 }
@@ -213,7 +214,7 @@ button {
 }
 
 .figma-container {
-  padding: 80px 64px;
+  padding: clamp(3rem, 10vw, 5rem) clamp(1rem, 5vw, 4rem);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -272,18 +273,23 @@ button {
 }
 
 .primary-btn {
-  background-color: var(--color-secondary);
+  background-color: var(--color-primary);
   width: auto;
   height: 44px;
   padding: 9px 16px;
   border-radius: 12px;
   font-family: "Inter", sans-serif;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 16px;
   line-height: 26px;
   letter-spacing: 0px;
   color: #ffffff;
   cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.primary-btn:hover {
+  background-color: var(--color-primary-hover);
 }
 
 .secondary-btn {
@@ -292,14 +298,19 @@ button {
   padding: 9px 16px;
   gap: 4px;
   border-radius: 12px;
-  border: 1.5px solid var(--color-secondary);
+  border: 1.5px solid var(--color-primary);
   font-family: Inter;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 16px;
   line-height: 26px;
   letter-spacing: 0px;
-  color: #ffffff;
+  color: var(--color-primary);
   cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.secondary-btn:hover {
+  background-color: rgba(182, 31, 38, 0.05);
 }
 
 /* ── Nav Menu ─────────────────────────────────────────────── */
@@ -327,8 +338,8 @@ button {
   padding: 9px 4px;
   font-family: "Inter", sans-serif;
   font-size: 15px;
-  font-weight: 400;
-  color: #ffffff;
+  font-weight: 500;
+  color: #1a1a1a;
   white-space: nowrap;
   cursor: pointer;
   transition: opacity 150ms ease;
@@ -459,13 +470,14 @@ button {
   left: 0;
   width: min(320px, 85vw);
   height: 100dvh;
-  background: var(--color-primary);
+  background: #ffffff;
   z-index: 200;
   display: flex;
   flex-direction: column;
   transform: translateX(-100%);
   transition: transform 350ms cubic-bezier(0.4, 0, 0.2, 1);
   overflow-y: auto;
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.1);
 }
 .mobile-sidebar.is-open {
   transform: translateX(0);
@@ -484,7 +496,7 @@ button {
   width: auto;
 }
 .sidebar-close-btn {
-  color: #ffffff;
+  color: #1a1a1a;
   cursor: pointer;
   padding: 6px;
   border-radius: 8px;
@@ -508,7 +520,7 @@ button {
   font-family: "Inter", sans-serif;
   font-size: 15px;
   font-weight: 500;
-  color: #ffffff;
+  color: #1a1a1a;
   transition: background 150ms ease;
 }
 .sidebar-link:hover {
@@ -525,7 +537,7 @@ button {
   font-family: "Inter", sans-serif;
   font-size: 15px;
   font-weight: 500;
-  color: #ffffff;
+  color: #1a1a1a;
   cursor: pointer;
   transition: background 150ms ease;
 }
@@ -562,7 +574,7 @@ button {
   font-family: "Inter", sans-serif;
   font-size: 14px;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.85);
+  color: #4a4a4a;
   transition:
     background 150ms ease,
     color 150ms ease;

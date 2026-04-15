@@ -5,24 +5,26 @@ import HeroCarousel from "./hero/HeroCarousel.astro";
 <div class="figma-container hero-bg">
   <div class="hero-section">
     <div class="chip">
-      <span class="staus"></span>
+      <span class="status"></span>
       <span class="pill-text">SIA & NSI APPROVED</span>
     </div>
     <div class="heading">
       <div class="heading-box">
-        <h1 class="heading-1">Protecting What Matters with</h1>
-        <h1 class="heading-1" style="color: var(--color-secondary);">
+        <h1 class="heading-1" style="color: #1a1a1a;">
+          Protecting What Matters with
+        </h1>
+        <h1 class="heading-1" style="color: var(--color-primary);">
           Advance Security
         </h1>
       </div>
       <div class="heading-box">
-        <h2 class="body-large" style="color: white;">
+        <h2 class="body-large" style="color: #1a1a1a;">
           We deliver proactive, technology driven security solutions for
           business and communities.
         </h2>
       </div>
     </div>
-    <div class="flex-row" style="gap: 32px;">
+    <div class="hero-btns">
       <button class="primary-btn flex-row">
         <img src="/icons/quick-reply.svg" alt="box icon" />
         <span> Quick Quote </span>
@@ -44,13 +46,14 @@ import HeroCarousel from "./hero/HeroCarousel.astro";
     background-position: center;
     background-repeat: no-repeat;
     isolation: isolate;
+    padding-top: clamp(1rem, 5vw, 2.5rem) !important;
   }
 
   .hero-bg::before {
     content: "";
     position: absolute;
     inset: 0;
-    background-color: rgba(37, 99, 235, 0.7); /* Translucent Blue */
+    background-color: rgba(255, 255, 255, 0.7); /* Translucent White Overlay */
     z-index: -1;
   }
 
@@ -59,16 +62,17 @@ import HeroCarousel from "./hero/HeroCarousel.astro";
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 64px;
+    gap: 15px;
   }
 
   .chip {
-    padding: 0px 8px;
+    padding: 4px 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    border: 1.5px solid #14b8a6;
+    gap: 2px;
+    background-color: rgba(16, 185, 129, 0.5); /* 80% Opaque Green */
+    border: 1.5px solid #197959;
     border-radius: 12px;
   }
 
@@ -93,5 +97,31 @@ import HeroCarousel from "./hero/HeroCarousel.astro";
 
   .heading-box {
     padding: 8px;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 32px;
+    width: auto;
+    margin-bottom: 32px;
+  }
+
+  @media (max-width: 768px) {
+    .hero-section {
+      gap: 24px;
+    }
+
+    .hero-btns {
+      flex-direction: column;
+      gap: 16px;
+      width: 100%;
+      margin-bottom: 16px;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+      width: 100%;
+      justify-content: center;
+    }
   }
 </style>
